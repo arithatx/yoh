@@ -1,0 +1,437 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ภาคตะวันออกเฉียงเหนือ</title>
+  </head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin="" />
+  
+  <!-- W3 CSS template -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <style>
+  #mapid {
+  height: 800px;
+  }
+  </style>
+<body>
+  <div class="w3-row">
+    <div id="mapid" class="w3-half"></div>
+    <div id="content" class="w3-half">
+    <table class="w3-table w3-striped">
+    <tr>
+    <th>ชื่อแหล่งท่องเที่ยว</th>
+    <th>ประเภท</th>
+    <th>PM2.5</th>
+    </tr>
+    <tr>
+    <td>น้ำตก A</td>
+    <td>ธรรมชาติ</td>
+    <td>A</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+<script>
+    var map = L.map("mapid").setView([17.53899785034393, 100.86130992069421], 8);
+    var tourpoint = 
+    {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "กาฬสินธุ์",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 58,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          103.50572202784258,
+          16.452268247645506
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ขอนเเก่น",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level":49,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          102.83612998738164,
+          16.4619093301158
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ชัยภูมิ",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 46,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          102.03860773701916,
+          15.823308492145514
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นครพนม",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 44,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          104.80081887777027,
+          17.43945988319878
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นครราชสีมา",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 46,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          102.095658500002,
+          14.998264870684693
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "บึงกาฬ",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 47,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          103.65089990162573,
+          18.376529223376835
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "บุรีรัมย์",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "weather": "ปานกลาง",
+        "level": 43
+      },
+      "geometry": {
+        "coordinates": [
+          103.10419901865129,
+          15.031995154278903
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "มหาสารคาม",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 50,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          103.31139446102497,
+          16.219234369040237
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "มุกดาหาร",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 49,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          104.7387152761213,
+          16.562097939485355
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ยโสธร",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "weather": "ปานกลาง",
+        "level": 48
+      },
+      "geometry": {
+        "coordinates": [
+          104.16648762302458,
+          15.823950545150936
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ร้อยเอ็ด",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 49,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          103.65102631191286,
+          16.085724226939874
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เลย",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 84,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          101.74766472114578,
+          17.50617738667782
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ศรีสะเกษ",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 38,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          104.32789295850421,
+          15.128575586051213
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สกลนคร",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 33,
+        "weather": "คุณภาพอากาศดี"
+      },
+      "geometry": {
+        "coordinates": [
+          104.17931671479545,
+          17.217196878871903
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สุรินทร์",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 29,
+        "weather": "คุณภาพอากาศดี"
+      },
+      "geometry": {
+        "coordinates": [
+          103.48509058598069,
+          14.902626720752522
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "หนองคาย",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 72,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          102.7442960745201,
+          17.882153905498512
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "หนองบัวลำภู",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 72,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          102.44712984991469,
+          17.22369138699642
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "อุดรธานี",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 56,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          102.78024428821573,
+          17.447918526066417
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "อุบลราชธานี",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 48,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          104.85723939270594,
+          15.262132104090242
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "อำนาจเจริญ",
+        "type": "ภาคตะวันออกเฉียงเหนือ",
+        "level": 55,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          104.62750847519703,
+          15.875094570221094
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
+   
+ var osm = L.tileLayer(
+ "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ ).addTo(map);
+ var gsat = L.tileLayer(
+ "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+ ).addTo(map);
+ 
+ var baseMaps = {
+ OSM: osm,
+ GoogleSat: gsat,
+ };
+ var tourLayer = L.geoJSON(tourpoint, {
+ pointToLayer: function (feature, latlng) {
+ return L.marker(latlng).bindPopup(feature.properties.name);
+ },
+ onEachFeature: function (feature, layer) {
+ layer.on("mouseover", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.add("w3-red");
+ });
+ 
+ layer.on("mouseout", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.remove("w3-red");
+ });
+ },
+ }).addTo(map);
+ 
+ var cont = "";
+ cont += "<table class='w3-table w3-striped'>";
+ cont += "<tr>";
+ cont += "<th>ชื่อจังหวัด</th>";
+ cont += "<th>ภาค</th>";
+ cont += "<th>PM2.5</th>";
+ cont += "<th>อากาศ</th>";
+ cont += "</tr>";
+ for (let i in tourpoint.features) {
+ cont += "<tr id=" + tourpoint.features[i].properties.name + ">";
+ cont += "<td>" + tourpoint.features[i].properties.name + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.type + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.level + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.weather + "</td>";
+ cont += "</tr>";
+ }
+ cont += "</table>";
+ console.log(cont);
+ document.getElementById("content").innerHTML = cont;
+
+
+ 
+
+</script>
+
+
+
+
+
+<center>
+  <h3><a href="home.html">หน้าแรก</h3></a>
+</center>  
+
+
+
+
+
+</body>

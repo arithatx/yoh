@@ -1,0 +1,262 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ภาคเหนือ</title>
+  </head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin="" />
+  
+  <!-- W3 CSS template -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <style>
+  #mapid {
+  height: 800px;
+  }
+  </style>
+<body>
+  <div class="w3-row">
+    <div id="mapid" class="w3-half"></div>
+    <div id="content" class="w3-half">
+    <table class="w3-table w3-striped">
+    <tr>
+    <th>ชื่อแหล่งท่องเที่ยว</th>
+    <th>ประเภท</th>
+    <th>PM2.5</th>
+    </tr>
+    <tr>
+    <td>น้ำตก A</td>
+    <td>ธรรมชาติ</td>
+    <td>A</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+<script>
+    var map = L.map("mapid").setView([17.53899785034393, 100.86130992069421], 8);
+    var tourpoint = 
+    {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เชียงราย",
+        "type": "ภาคเหนือ",
+        "level": 223,
+        "weather": "มีผลกระทบต่อสุขภาพ",
+      },
+      "geometry": {
+        "coordinates": [
+          99.83198895145779,
+          19.95041938561984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เชียงใหม่",
+        "type": "ภาคเหนือ",
+        "level": 150,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          98.98931236925836,
+          18.855481326784655
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "น่าน",
+        "type": "ภาคเหนือ",
+        "level": 112,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.77543074620218,
+          18.80016261216953
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "พะเยา",
+        "type": "ภาคเหนือ",
+        "level": 154,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          99.9102246992,
+          19.192908853590765
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เเพร่",
+        "type": "ภาคเหนือ",
+        "level": 67,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.14527640737299,
+          18.209651575023173
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เเม่ฮ่องสอน",
+        "type": "ภาคเหนือ",
+        "level": 103,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          97.96852418289296,
+          19.30107191820383
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "ภาคเหนือ",
+        "name": "ลำปาง",
+        "level": 125,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          99.50381449999753,
+          18.33370952249767
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "ภาคเหนือ",
+        "name": "ลำพูน",
+        "level": 92,
+        "weather": "มีผลกระทบต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          99.00273647927469,
+          18.604673281307896
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "ภาคเหนือ",
+        "name": "อุตรดิตถ์",
+        "level": 56,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.10442812360964,
+          17.649081316564477
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
+ var osm = L.tileLayer(
+ "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ ).addTo(map);
+ var gsat = L.tileLayer(
+ "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+ ).addTo(map);
+ 
+ var baseMaps = {
+ OSM: osm,
+ GoogleSat: gsat,
+ };
+ var tourLayer = L.geoJSON(tourpoint, {
+ pointToLayer: function (feature, latlng) {
+ return L.marker(latlng).bindPopup(feature.properties.name);
+ },
+ onEachFeature: function (feature, layer) {
+ layer.on("mouseover", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.add("w3-red");
+ });
+ 
+ layer.on("mouseout", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.remove("w3-red");
+ });
+ },
+ }).addTo(map);
+ 
+ var cont = "";
+ cont += "<table class='w3-table w3-striped'>";
+ cont += "<tr>";
+ cont += "<th>ชื่อจังหวัด</th>";
+ cont += "<th>ภาค</th>";
+ cont += "<th>PM2.5</th>";
+ cont += "<th>อากาศ</th>";
+ cont += "</tr>";
+ for (let i in tourpoint.features) {
+ cont += "<tr id=" + tourpoint.features[i].properties.name + ">";
+ cont += "<td>" + tourpoint.features[i].properties.name + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.type + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.level + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.weather + "</td>";
+ cont += "</tr>";
+ }
+ cont += "</table>";
+ console.log(cont);
+ document.getElementById("content").innerHTML = cont;
+
+
+
+
+ 
+
+</script>
+
+
+
+
+<center>
+    <h3><a href="home.html">หน้าแรก</h3></a>
+</center>  
+
+
+
+
+
+
+</body>

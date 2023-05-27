@@ -1,0 +1,468 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ภาคกลาง</title>
+  </head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin="" />
+  
+  <!-- W3 CSS template -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <style>
+  #mapid {
+  height: 800px;
+  }
+  </style>
+<body>
+  <div class="w3-row">
+    <div id="mapid" class="w3-half"></div>
+    <div id="content" class="w3-half">
+    <table class="w3-table w3-striped">
+    <tr>
+    <th>ชื่อแหล่งท่องเที่ยว</th>
+    <th>ประเภท</th>
+    <th>PM2.5</th>
+    </tr>
+    <tr>
+    <td>น้ำตก A</td>
+    <td>ธรรมชาติ</td>
+    <td>A</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+<script>
+    var map = L.map("mapid").setView([17.53899785034393, 100.86130992069421], 8);
+    var tourpoint = 
+    {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "กรุงเทพมหานคร",
+        "type": "ภาคกลาง",
+        "level": 65,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.49205169748063,
+          13.764011126629441
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "กำเเพงเพชร",
+        "type": "ภาคกลาง",
+        "level": 80,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          99.53720494844589,
+          16.50493827203897
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ชัยนาท",
+        "type": "ภาคกลาง",
+        "level": 63,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.12527621276786,
+          15.200974640565505
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นครนายก",
+        "type": "ภาคกลาง",
+        "level": 53,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          101.21394417991814,
+          14.238455737591664
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นครปฐม",
+        "type": "ภาคกลาง",
+        "level": 76,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.06566931813768,
+          13.834367562955762
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นครสวรรค์",
+        "type": "ภาคกลาง",
+        "level": 51,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.13533442076886,
+          15.739941585943797
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "นนทบุรี",
+        "type": "ภาคกลาง",
+        "level": 57,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.49472716585456,
+          13.848154170037517
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ปทุมธานี",
+        "type": "ภาคกลาง",
+        "level": 52,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.53526762499814,
+          14.033038496577689
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "พระนครศรีอยุธยา",
+        "type": "ภาคกลาง",
+        "level": 48,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          100.5705578979152,
+          14.360470073785962
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "พิจิตร",
+        "type": "ภาคกลาง",
+        "level": 41,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          100.34202946628432,
+          16.458116662913667
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "พิษณุโลก",
+        "type": "ภาคกลาง",
+        "level": 71,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.25946678301432,
+          16.81930506925484
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "เพชรบูรณ์",
+        "type": "ภาคกลาง",
+        "level": 68,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          101.15454878914875,
+          16.495263515550818
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ลพบุรี",
+        "type": "ภาคกลาง",
+        "level": 53,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.62675132933367,
+          14.816783665736523
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สมุทรปราการ",
+        "type": "ภาคกลาง",
+        "level": 57,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.59738098076758,
+          13.59993917118257
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สมุทรสงคราม",
+        "type": "ภาคกลาง",
+        "level": 54,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.00083820719777,
+          13.41022775656947
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สมุทรสาคร",
+        "type": "ภาคกลาง",
+        "level": 52,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.2722999923144,
+          13.556261655956604
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สระบุรี",
+        "type": "ภาคกลาง",
+        "level": 47,
+        "weather": "ปานกลาง"
+      },
+      "geometry": {
+        "coordinates": [
+          100.91821853153766,
+          14.534727166490086
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สิงห์บุรี",
+        "type": "ภาคกลาง",
+        "level": 70,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.39567845679363,
+          14.894985104255454
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สุโขทัย",
+        "type": "ภาคกลาง",
+        "level": 69,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          99.82255136251916,
+          17.042433508316037
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "สุพรรณบุรี",
+        "type": "ภาคกลาง",
+        "level": 72,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.11930471969248,
+          14.483489107552785
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "อ่างทอง",
+        "type": "ภาคกลาง",
+        "level": 56,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.45284126319785,
+          14.595729582352632
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "อุทัยธานี",
+        "type": "ภาคกลาง",
+        "level": 57,
+        "weather": "เริ่มมีผลต่อสุขภาพ"
+      },
+      "geometry": {
+        "coordinates": [
+          100.0303706609551,
+          15.394117578141163
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
+   
+ var osm = L.tileLayer(
+ "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ ).addTo(map);
+ var gsat = L.tileLayer(
+ "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+ ).addTo(map);
+ 
+ var baseMaps = {
+ OSM: osm,
+ GoogleSat: gsat,
+ };
+ var tourLayer = L.geoJSON(tourpoint, {
+ pointToLayer: function (feature, latlng) {
+ return L.marker(latlng).bindPopup(feature.properties.name);
+ },
+ onEachFeature: function (feature, layer) {
+ layer.on("mouseover", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.add("w3-red");
+ });
+ 
+ layer.on("mouseout", function () {
+ document
+ .getElementById(feature.properties.name)
+ .classList.remove("w3-red");
+ });
+ },
+ }).addTo(map);
+ 
+ var cont = "";
+ cont += "<table class='w3-table w3-striped'>";
+ cont += "<tr>";
+ cont += "<th>ชื่อจังหวัด</th>";
+ cont += "<th>ภาค</th>";
+ cont += "<th>PM2.5</th>";
+ cont += "<th>อากาศ</th>";
+ cont += "</tr>";
+ for (let i in tourpoint.features) {
+ cont += "<tr id=" + tourpoint.features[i].properties.name + ">";
+ cont += "<td>" + tourpoint.features[i].properties.name + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.type + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.level + "</td>";
+ cont += "<td>" + tourpoint.features[i].properties.weather + "</td>";
+ cont += "</tr>";
+ }
+ cont += "</table>";
+ console.log(cont);
+ document.getElementById("content").innerHTML = cont;
+
+
+ 
+
+</script>
+
+
+<center>
+  <h3><a href="home.html">หน้าแรก</h3></a>
+</center>  
+
+
+
+
+
+
+
+</body>
